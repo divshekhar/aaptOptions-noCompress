@@ -1,0 +1,42 @@
+group 'com.devsonflutter.sentence_detection'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+dependencies {
+    api group: "org.apache.opennlp", name: "opennlp-tools", version: "1.9.3"
+}
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+
+    aaptOptions {
+       noCompress 'bin'
+    }
+}
